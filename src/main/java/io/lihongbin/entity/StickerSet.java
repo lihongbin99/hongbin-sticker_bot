@@ -45,17 +45,27 @@ public class StickerSet implements Serializable {
     @TableField("zip_path")
     private String zipPath;
 
+    @TableField("directory_name")
+    private String directoryName;
+
+    @TableField("is_new")
+    private Boolean isNew;
+
+    @TableField("is_refresh")
+    private Boolean isRefresh;
+
     @TableField("create_time")
     private LocalDateTime createTime;
 
     @TableField("update_time")
     private LocalDateTime updateTime;
 
-    public StickerSet(String name, String title, Boolean isAnimated, Boolean containsMasks, String zipPath) {
+    public StickerSet(String name, String title, Boolean isAnimated, Boolean containsMasks, String zipPath, String directoryName) {
         this.name = name;
         this.title = title;
         this.isAnimated = isAnimated;
         this.containsMasks = containsMasks;
         this.zipPath = zipPath;
+        this.directoryName = directoryName;
     }
 }

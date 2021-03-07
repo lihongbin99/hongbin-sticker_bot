@@ -82,4 +82,7 @@ public class FileConfig implements InitializingBean {
         return this.stickerDirectory + File.separator + directoryName;
     }
 
+    public String directoryNameToZipPath(String directoryName) {
+        return this.zipDirectory + File.separator + directoryName + ".zip";
+    }
 }

@@ -1,8 +1,10 @@
 package io.lihongbin.service;
 
-import io.lihongbin.entity.Sticker;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.pengrad.telegrambot.TelegramBot;
+import io.lihongbin.entity.Sticker;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -20,5 +22,7 @@ public interface StickerService extends IService<Sticker> {
     Sticker getStickerByFileUniqueId(String fileUniqueId);
 
     List<Sticker> getStickersBySetName(String setName);
+
+    Sticker addSticker(com.pengrad.telegrambot.model.Sticker s, String stickerDirectory, final TelegramBot BOT) throws IOException;
 
 }

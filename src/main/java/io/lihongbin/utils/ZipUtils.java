@@ -8,6 +8,9 @@ import java.util.zip.ZipOutputStream;
 public class ZipUtils {
 
     public static void toZip(File file, List<File> fileList) throws IOException {
+        if (file.exists() && !file.delete()) {
+            throw new RuntimeException("打包 zip 失败: 删除旧 zip 失败");
+        }
         ZipOutputStream outputStream = new ZipOutputStream(new FileOutputStream(file));
         for (File f : fileList) {
             addFile(outputStream, f);
@@ -27,4 +30,7 @@ public class ZipUtils {
         outputStream.closeEntry();
     }
 
+    public static String getSetNameTxt(String stickerDirectory) {
+        return stickerDirectory + File.separator + "setName.txt";
+    }
 }

@@ -44,6 +44,8 @@ public class PhotoServiceImpl implements PhotoService {
             } else {
                 BOT.execute(new SendMessage(chatId, "此格式暂不支持下载").replyToMessageId(update.message().messageId()));
             }
+        } else if (CallbackDataConstant.REFRESH_STICKER.name().equals(data)) {
+            // TODO 刷新贴纸
         }
     }
 
